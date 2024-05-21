@@ -6,9 +6,8 @@ require("sahil.plugins.plugin-configs.catppuccin")
 require("sahil.plugins.plugin-configs.nvim-treesitter")
 require("sahil.plugins.plugin-configs.nvim-tree")
 require("sahil.plugins.plugin-configs.toggle-term")
-require("sahil.plugins.plugin-configs.ibl")
 require("sahil.plugins.plugin-configs.comment")
--- require("sahil.plugins.plugin-configs.neogit")
+require("sahil.plugins.plugin-configs.neogit")
 
 -- LSP and COMPLETIONS
 require("sahil.plugins.plugin-configs.LuaSnip")

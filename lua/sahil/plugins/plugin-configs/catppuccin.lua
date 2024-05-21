@@ -1,3 +1,4 @@
+-- this is a comment
 require("catppuccin").setup({
 	flavour = "mocha",
 	background = {
@@ -32,12 +33,47 @@ require("catppuccin").setup({
 	},
 	color_overrides = {
 		all = {},
-		mocha = {},
+		mocha = {
+			rosewater = "#f5e0dc",
+			flamingo = "#f2cdcd",
+			pink = "#f5c2e7",
+			mauve = "#cba6f7",
+			red = "#f38ba8",
+			maroon = "#eba0ac",
+			peach = "#fab387",
+			yellow = "#f9e2af",
+			green = "#a6e3a1",
+			teal = "#94e2d5",
+			sky = "#89dceb",
+			sapphire = "#74c7ec",
+			blue = "#89b4fa",
+			lavender = "#b4befe",
+			text = "#EEFFFF",
+			subtext1 = "#bac2de",
+			subtext0 = "#a6adc8",
+			overlay2 = "#9399b2",
+			overlay1 = "#7f849c",
+			overlay0 = "#676E95",
+			surface2 = "#585b70",
+			surface1 = "#676E95",
+			surface0 = "#676E95",
+			base = "#676E95",
+			mantle = "#181825",
+			crust = "#11111b",
+		},
 		frappe = {},
 		macchiato = {},
 		latte = {},
 	},
-	custom_highlights = {},
+	custom_highlights = function(colors)
+		return {
+			-- left for later (stuff changes here)
+			-- Comment = { fg = colors.flamingo },
+			-- TabLineSel = { bg = colors.pink },
+			-- CmpBorder = { fg = colors.surface2 },
+			-- Pmenu = { bg = colors.none },
+		}
+	end,
 	integrations = {
 		cmp = true,
 		gitsigns = true,

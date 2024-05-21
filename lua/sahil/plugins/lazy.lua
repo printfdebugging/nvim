@@ -31,8 +31,16 @@ require("lazy").setup({
 	{
 		"lukas-reineke/indent-blankline.nvim",
 		main = "ibl",
-		opts = {},
-		config = true,
+		commit = "29be0919b91fb59eca9e90690d76014233392bef",
+		config = function()
+			require("ibl").setup({
+				indent = { char = "┆" },
+				whitespace = {
+					remove_blankline_trail = false,
+				},
+				scope = { enabled = false },
+			})
+		end,
 	},
 
 	{
@@ -209,16 +217,15 @@ require("lazy").setup({
 
 	{
 		name = "neogit",
-		dir = "/home/printf/repos/neogit",
+		dir = "/home/printf/repos/github/neogit",
 		config = function()
 			require("neogit").setup({})
 		end,
 	},
 
 	-- {
-	-- "NeogitOrg/neogit",
-	-- "neogit",
-	-- 	url = "/home/printf/repos/neogit/",
+	-- 	"NeogitOrg/neogit",
+	-- 	tag = "v0.0.1",
 	-- 	dependencies = {
 	-- 		"nvim-lua/plenary.nvim",
 	-- 		"sindrets/diffview.nvim",
@@ -246,6 +253,6 @@ require("lazy").setup({
 
 	{
 		name = "myplugin",
-		dir = "/home/printf/repos/myplugin",
+		dir = "/home/printf/repos/github/myplugin",
 	},
 })

@@ -47,8 +47,14 @@ cmp.setup({
 
 	formatting = {
 		format = require("lspkind").cmp_format({
+			mode = "symbol_text",
 			maxwidth = 20,
 			ellipsis_char = "...",
+
+			before = function(_, vim_item)
+				vim_item.menu = ({ nvim_lsp = "" })["clangd"]
+				return vim_item
+			end,
 		}),
 	},
 	sources = cmp.config.sources({
