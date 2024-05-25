@@ -17,7 +17,7 @@ keymap.set("n", "m", ":MaximizerToggle!<CR>")
 keymap.set("n", "<leader>mp", ":MarkdownPreviewToggle<CR>")
 keymap.set("n", "s", ":source %<CR>")
 keymap.set("n", "z", ":ToggleTerm<CR>")
-keymap.set("x", "<leader>p", '"_dP')
+keymap.set("x", "p", '"_dP')
 keymap.set("n", "<leader>sv", ":vsplit<CR>")
 keymap.set("n", "<leader>sh", ":split<CR>")
 
@@ -69,7 +69,12 @@ vim.keymap.set("n", "<leader>ff", ":lua G_telescope_last=0 require('telescope.bu
 -- vim.keymap.set("n", "<leader>fb", ":lua require('telescope.builtin').buffers()<CR>")
 vim.keymap.set("n", "<leader>fh", ":lua G_telescope_last=0 require('telescope.builtin').help_tags()<CR>")
 vim.keymap.set("n", "<leader>fm", ":lua G_telescope_last=0 require('telescope.builtin').man_pages()<CR>")
-vim.keymap.set("n", "<leader>gs", ":lua G_telescope_last=0 require('telescope.builtin').git_status()<CR>")
+vim.keymap.set("n", "<leader>gs", ":lua G_telescope_last=1 require('telescope.builtin').git_status()<CR>")
+vim.keymap.set(
+	"n",
+	"<leader>fb",
+	":lua G_telescope_last=0 require('telescope.builtin').current_buffer_fuzzy_find()<CR>"
+)
 vim.keymap.set("n", "<leader>fs", G_telescope_resume)
 
 -- NVIM-TREE

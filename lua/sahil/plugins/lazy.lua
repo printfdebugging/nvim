@@ -1,3 +1,4 @@
+---@diagnostic disable: undefined-doc-name, assign-type-mismatch
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
 	vim.fn.system({
@@ -20,6 +21,9 @@ require("lazy").setup({
 		name = "catppuccin",
 		priority = 1000,
 		config = true,
+	},
+	{
+		"NTBBloodbath/doom-one.nvim",
 	},
 
 	{
@@ -215,24 +219,30 @@ require("lazy").setup({
 		end,
 	},
 
-	{
-		name = "neogit",
-		dir = "/home/printf/repos/github/neogit",
-		config = function()
-			require("neogit").setup({})
-		end,
-	},
-
 	-- {
-	-- 	"NeogitOrg/neogit",
+	-- 	name = "neogit",
 	-- 	tag = "v0.0.1",
 	-- 	dependencies = {
 	-- 		"nvim-lua/plenary.nvim",
 	-- 		"sindrets/diffview.nvim",
 	-- 		"nvim-telescope/telescope.nvim",
 	-- 	},
-	-- 	config = true,
+	-- 	dir = "/home/printf/repos/github/neogit",
+	-- 	config = function()
+	-- 		require("neogit").setup({})
+	-- 	end,
 	-- },
+
+	{
+		"NeogitOrg/neogit",
+		tag = "v0.0.1",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"sindrets/diffview.nvim",
+			"nvim-telescope/telescope.nvim",
+		},
+		config = true,
+	},
 
 	{
 		"neovim/nvim-lspconfig",
