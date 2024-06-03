@@ -112,3 +112,16 @@ end, { silent = true })
 vim.keymap.set({ "i", "s" }, "<M-h>", function()
 	require("luasnip").jump(-1)
 end, { silent = true })
+
+-- Tabs related keybindings
+vim.keymap.set("n", "<M-t>", ":tabnew<CR>")
+vim.keymap.set("n", "<M-w>", ":tabclose<CR>")
+vim.keymap.set("n", "<M-n>", ":tabnext<CR>")
+vim.keymap.set("n", "<M-p>", ":tabprevious<CR>")
+vim.keymap.set("n", "<M-p>", ":tabprevious<CR>")
+
+for i = 1, 9 do
+	vim.api.nvim_set_keymap("n", "<A-" .. i .. ">", i .. "gt", { noremap = true, silent = true })
+end
+
+vim.api.nvim_set_keymap("n", "<A-T>", ":tab split<CR>", { noremap = true, silent = true })
