@@ -272,4 +272,7 @@ require("lazy").setup({
 			require("luatab").setup({})
 		end,
 	},
+	{
+		"epheien/termdbg",
+	},
 })
