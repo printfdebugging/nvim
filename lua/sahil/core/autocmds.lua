@@ -46,17 +46,10 @@ vim.api.nvim_create_autocmd("FileType", {
 	end,
 })
 
--- local indent_blankline_group = vim.api.nvim_create_augroup("DisableDiagnosticsForGoFiles", { clear = true })
--- vim.api.nvim_create_autocmd("FileType", {
--- 	pattern = "go",
--- 	group = indent_blankline_group,
--- 	callback = function(args)
--- 		vim.api.nvim_create_autocmd("BufEnter", {
--- 			buffer = args.buf,
--- 			group = indent_blankline_group,
--- 			callback = function()
--- 				vim.cmd([[ lua vim.diagnostic.disable() ]])
--- 			end,
--- 		})
--- 	end,
--- })
+-- " Define an autocommand group to avoid duplication
+vim.cmd([[
+  augroup MatchParenHighlight
+    autocmd!
+    autocmd BufEnter * hi MatchParen guifg=NONE guibg=NONE
+  augroup END
+]])
