@@ -115,15 +115,12 @@ end, { silent = true })
 
 -- Tabs related keybindings
 vim.keymap.set("n", "<C-t>", ":tabnew<CR>")
-vim.keymap.set("n", "<C-w>", ":tabclose<CR>")
+vim.keymap.set("n", "<C-q>", ":tabclose<CR>")
 
-vim.keymap.set("i", "<C-t>", function()
-	vim.cmd("tabnew")
-end)
--- no need.
--- vim.keymap.set("n", "<C-n>", ":tabnext<CR>")
--- vim.keymap.set("n", "<C-p>", ":tabprevious<CR>")
--- vim.keymap.set("n", "<C-p>", ":tabprevious<CR>")
+-- Key mappings
+vim.keymap.set("n", "<C-t>", ":tabnew<CR>")
+vim.keymap.set("n", "<C-q>", "<C-w>", { noremap = true })
+vim.keymap.set("n", "<C-w>", ":tabclose<CR>", { noremap = true, silent = true, nowait = true })
 
 for i = 1, 9 do
 	vim.api.nvim_set_keymap("n", "<C-" .. i .. ">", i .. "gt", { noremap = true, silent = true })

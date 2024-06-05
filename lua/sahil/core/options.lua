@@ -27,6 +27,7 @@ local options = {
 	scrolloff = 8,
 	updatetime = 50,
 	scroll = 4,
+	showtabline = 2,
 	concealcursor = "n",
 	-- mouse = "",
 }

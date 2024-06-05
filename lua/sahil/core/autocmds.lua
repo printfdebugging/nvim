@@ -53,3 +53,27 @@ vim.cmd([[
     autocmd BufEnter * hi MatchParen guifg=NONE guibg=NONE
   augroup END
 ]])
+
+-- Function to open a terminal in the first tab
+local function open_terminal_in_first_tab()
+	if vim.fn.tabpagenr("$") == 1 and vim.bo.filetype ~= "terminal" then
+		vim.cmd("term")
+		vim.cmd("set nonumber")
+		vim.cmd("set norelativenumber")
+		vim.cmd("tabnew")
+	end
+end
+
+-- Open terminal in the first tab if no tabs are open
+open_terminal_in_first_tab()
+
+-- Set up an autocmd to ensure the first tab is always a terminal
+vim.api.nvim_create_autocmd("VimEnter", {
+	callback = open_terminal_in_first_tab,
+})
+vim.cmd([[
+  augroup Terminal
+    autocmd!
+    autocmd TermOpen "terminal" setlocal nonumber norelativenumber
+  augroup END
+]])
