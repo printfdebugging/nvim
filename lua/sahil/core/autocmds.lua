@@ -60,12 +60,16 @@ local function open_terminal_in_first_tab()
 		vim.cmd("term")
 		vim.cmd("setlocal nonumber")
 		vim.cmd("setlocal norelativenumber")
+	end
+
+	if vim.fn.argc() > 0 then
+		for i = 0, vim.fn.argc() - 1 do
+			vim.cmd("tabnew " .. vim.fn.argv(i))
+		end
+	else
 		vim.cmd("tabnew")
 	end
 end
-
--- Open terminal in the first tab if no tabs are open
-open_terminal_in_first_tab()
 
 -- Set up an autocmd to ensure the first tab is always a terminal
 vim.api.nvim_create_autocmd("VimEnter", {
