@@ -69,6 +69,9 @@ local function open_terminal_in_first_tab()
 	else
 		vim.cmd("tabnew")
 	end
+	-- handle the case where if argv is not empty, then
+	-- we open those different files in different tabs starting
+	-- at 2
 end
 
 -- Set up an autocmd to ensure the first tab is always a terminal

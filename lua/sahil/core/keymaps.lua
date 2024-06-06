@@ -113,17 +113,24 @@ vim.keymap.set({ "i", "s" }, "<M-h>", function()
 	require("luasnip").jump(-1)
 end, { silent = true })
 
+local function custom_tabclose()
+	if vim.fn.tabpagenr() == 1 then
+		print("You cannot close the first tab!")
+	else
+		vim.cmd("tabclose")
+	end
+end
+
 -- Tabs related keybindings
-vim.keymap.set("n", "<C-t>", ":tabnew<CR>")
-vim.keymap.set("n", "<C-q>", ":tabclose<CR>")
 
 -- Key mappings
 vim.keymap.set("n", "<C-t>", ":tabnew<CR>")
 vim.keymap.set("n", "<C-q>", "<C-w>", { noremap = true })
-vim.keymap.set("n", "<C-w>", ":tabclose<CR>", { noremap = true, silent = true, nowait = true })
+vim.keymap.set("n", "<C-w>", custom_tabclose, { noremap = true, silent = true, nowait = true })
 
 for i = 1, 9 do
 	vim.api.nvim_set_keymap("n", "<C-" .. i .. ">", i .. "gt", { noremap = true, silent = true })
 end
 
 vim.api.nvim_set_keymap("n", "<C-S-T>", ":tab split<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("t", "<Esc>", [[<C-\><C-n>]], { noremap = true, silent = true }) -- now terminal works!
