@@ -58,8 +58,8 @@ vim.cmd([[
 local function open_terminal_in_first_tab()
 	if vim.fn.tabpagenr("$") == 1 and vim.bo.filetype ~= "terminal" then
 		vim.cmd("term")
-		vim.cmd("set nonumber")
-		vim.cmd("set norelativenumber")
+		vim.cmd("setlocal nonumber")
+		vim.cmd("setlocal norelativenumber")
 		vim.cmd("tabnew")
 	end
 end
